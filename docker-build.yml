@@ -1,0 +1,6 @@
+version: '2'
+
+services:
+  mantisbt:
+    image: taichunmin/mantisbt:latest
+    build: ./mantisbt

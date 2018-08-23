@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  mantisbt:
+    image: taichunmin/mantisbt:latest
+    restart: always
+    ports:
+      - "${MANTISBT_80}:80"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=mantisbt
+      - MYSQL_USER=mantisbt
+      - MYSQL_PASSWORD=mantisbt
+    volumes:
+      - "${DATA_DIR}/mysql:/var/lib/mysql"
